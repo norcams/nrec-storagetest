@@ -1,0 +1,9 @@
+pyvenv.cfg
+bin/
+lib/
+lib64
+include/
+inventory
+.roles/
+.collections/
+

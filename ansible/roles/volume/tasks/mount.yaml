@@ -1,0 +1,14 @@
+---
+- name: Create mount point
+  ansible.builtin.file: 
+    path: "{{ volume_mount_point }}" 
+    state: directory 
+    mode: 0755
+
+- name: Mounting new filesystem
+  ansible.posix.mount: 
+    name: "{{ volume_mount_point }}"
+    src: "/dev/{{ volume_vgname }}/{{ volume_lvname }}"
+    fstype: "{{ volume_fstype }}" 
+    state: mounted
+

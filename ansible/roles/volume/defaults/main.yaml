@@ -1,0 +1,7 @@
+---
+volume_device:      '/dev/sdb'
+volume_vgname:      'vg_test'
+volume_lvname:      'lv_test'
+volume_mount_point: "{{ disktest_dir }}"
+volume_fstype:      'ext4'
+

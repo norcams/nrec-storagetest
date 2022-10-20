@@ -1,0 +1,7 @@
+---
+
+- name: Install lvm
+  package:
+    name: "{{ volume_lvm_package }}"
+    state: present
+
