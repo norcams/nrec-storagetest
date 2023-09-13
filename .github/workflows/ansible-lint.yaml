@@ -20,7 +20,7 @@ jobs:
         run: ansible-galaxy install -r requirements.yaml --force
 
       - name: Install local iozone module
-        run: ansible-galaxy install file://${GITHUB_WORKSPACE}/ansible/iozone
+        run: ansible-galaxy install file://${GITHUB_WORKSPACE}/ansible/roles/iozone
         
       - name: Run ansible-lint
         # replace `main` with any valid ref, or tags like `v6`
