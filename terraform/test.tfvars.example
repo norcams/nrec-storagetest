@@ -1,0 +1,17 @@
+# This must be set
+region = "bgo"
+
+# This must be set and uniq per region if you run mulitple test
+name = "mystoragetest"
+
+# This is needed to access the instance over ssh
+allow_ssh_from_v6 = [
+  "<my campus or local IPv6>"
+]
+allow_ssh_from_v4 = [
+  "<my campus or local IPv4>"
+]
+
+# Volume type and size (GB)
+# volume_type = "mass-storage-default"
+# volume_size = 2000

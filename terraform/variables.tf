@@ -4,6 +4,14 @@ variable "region" {}
 
 variable "name" {}
 
+variable "ncount" {
+  default = 1
+}
+
+variable "node_name" {
+  default = "storagetest"
+}
+
 variable "allow_ssh_from_v6" {
   type    = list(string)
   default = []
@@ -50,10 +58,10 @@ variable "metadata" {
   type = map
   default = {
     "name" = "nrec system test"
-    "created_by" = "https://github.com/norcams/storage-test"
+    "created_by" = "https://github.com/norcams/nrec-storagetest"
   }
 }
 
 variable "volume_size" {
-  default = 1000
+  default = 5000
 }
