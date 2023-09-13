@@ -5,7 +5,7 @@ collections:
 
 roles:
 #- src: willshersystems.sshd
-#  version: v0.18.0
+#  version: v0.20.0
 #  name: sshd
 - src: https://github.com/raykrist/ansible-common
   version: master
