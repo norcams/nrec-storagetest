@@ -18,11 +18,6 @@ jobs:
 
       - name: Install Galaxy dependencies.
         run: ansible-galaxy install -r requirements.yaml --force
-
-      - name: Install local iozone module
-        run: |
-          cd roles/iozone
-          ansible-galaxy install . -f
         
       - name: Run ansible-lint
         # replace `main` with any valid ref, or tags like `v6`
