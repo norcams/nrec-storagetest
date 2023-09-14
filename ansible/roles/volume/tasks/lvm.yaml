@@ -1,20 +1,18 @@
 ---
 - name: Create new volume group
-  community.general.lvg: 
-    vg:   "{{ volume_vgname }}"
-    pvs:  "{{ volume_device }}"
+  community.general.lvg:
+    vg: "{{ volume_vgname }}"
+    pvs: "{{ volume_device }}"
     state: present
 
 - name: Creating new logical volume
-  community.general.lvol: 
+  community.general.lvol:
     vg: "{{ volume_vgname }}"
     lv: "{{ volume_lvname }}"
-    size: '100%FREE' 
-    shrink: no
+    size: '100%FREE'
+    shrink: true
 
 - name: Creating new filesystem on new volume
-  community.general.filesystem: 
-    fstype: "{{ volume_fstype }}" 
+  community.general.filesystem:
+    fstype: "{{ volume_fstype }}"
     dev: "/dev/{{ volume_vgname }}/{{ volume_lvname }}"
-
-

@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: iozone
+  author: Raymond Kristiansen
   description: simple role for iozone management
   license: GPLv3
   min_ansible_version: '2.11'

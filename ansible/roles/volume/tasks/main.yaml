@@ -3,13 +3,16 @@
   include_vars: "{{ item }}"
   with_first_found:
     - files:
-      - "vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yaml"
-      - "vars/{{ ansible_distribution }}.yaml"
+        - "vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yaml"
+        - "vars/{{ ansible_distribution }}.yaml"
       errors: ignore
   tags: vars
 
-- import_tasks: install.yaml
+- name: Install LVM deps
+  import_tasks: install.yaml
 
-- import_tasks: lvm.yaml
+- name: Setup LVM
+  import_tasks: lvm.yaml
 
-- import_tasks: mount.yaml
+- name: Mount
+  import_tasks: mount.yaml

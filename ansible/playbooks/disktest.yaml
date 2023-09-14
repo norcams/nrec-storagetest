@@ -1,9 +1,10 @@
 ---
-- hosts: all
+- name: Disktest
+  hosts: all
   vars:
-     threads: "{{ ansible_facts['processor_vcpus'] }}"
-     ram: "{{ (ansible_facts['memtotal_mb']/1000) | round(0, 'ceil') }}"
-     size: "{{ (ram|int / threads|int) * 2 | round(0, 'ceil') }}G"
+    threads: "{{ ansible_facts['processor_vcpus'] }}"
+    ram: "{{ (ansible_facts['memtotal_mb']/1000) | round(0, 'ceil') }}"
+    size: "{{ (ram|int / threads|int) * 2 | round(0, 'ceil') }}G"
   tasks:
     - name: Create temporary data file
       ansible.builtin.tempfile:
@@ -13,18 +14,16 @@
 
     - name: Run IOzone disk test
       ansible.builtin.shell: |
-        /opt/iozone/bin/iozone -i 0 -i 1 -i 2 -t "{{threads}}" -s "{{size}}" > "{{ datafile.path }}"
+        /opt/iozone/bin/iozone -i 0 -i 1 -i 2 -t "{{ threads }}" -s "{{ size }}" > "{{ datafile.path }}"
       args:
         chdir: "{{ disktest_dir }}"
-      when: not ansible_check_mode        
+      when: not ansible_check_mode
 
     - name: Copy result
       ansible.builtin.fetch:
         src: "{{ datafile.path }}"
         dest: "{{ inventory_dir }}/result/{{ ansible_facts['date_time']['iso8601_basic'] }}.txt"
-        flat: yes
+        flat: true
       register: result_file
 
-
-    #- debug: msg="{{ result_file }}"
-
+    # - debug: msg="{{ result_file }}"

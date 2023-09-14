@@ -4,8 +4,7 @@
   ansible.builtin.dnf:
     name: 'https://www.iozone.org/src/current/iozone-3-493.x86_64.rpm'
     state: present
-    disable_gpg_check: yes
-  when: 
+    disable_gpg_check: true
+  when:
     - ansible_distribution == "AlmaLinux"
     - ansible_distribution_major_version|int >= 8
-
