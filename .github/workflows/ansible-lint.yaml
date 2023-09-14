@@ -21,7 +21,7 @@ jobs:
 
       - name: Install local iozone module
         run: |
-          cd iozone
+          cd roles/iozone
           ansible-galaxy install . -f
         
       - name: Run ansible-lint
