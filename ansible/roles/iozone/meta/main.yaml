@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Raymond Kristiansen
+  description: simple role for iozone management
+  license: GPLv3
+  min_ansible_version: '2.11'
+  standalone: true
+
+  platforms:
+    - name: EL
+      versions:
+        - '8'
+
+  galaxy_tags: [iozone]
+
+dependencies: []
